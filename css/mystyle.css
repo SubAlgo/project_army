@@ -1,0 +1,82 @@
+#t1 {
+    -moz-tab-size: 16; /* Code for Firefox */
+    -o-tab-size: 16; /* Code for Opera 10.6-12.1 */
+    tab-size: 16;
+}
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 400px; /*whatever width you want*/
+}
+
+
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+
+        
+.button 
+{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-red {background-color: #f44336;} /* Red */ 
+.button-gray {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button-black {background-color: #555555;} /* Black */
+
