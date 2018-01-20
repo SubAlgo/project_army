@@ -11,11 +11,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="./css/w3school.css">
+
+    <title>Login</title>
 </head>
 <body>
+<!--
 <a href='http://localhost/projeck_army/sub/sub_test.php'>sub_test</a>
+-->
+<script>
+    function canclelogin() {
+        
+        document.getElementsByName("userid")[0].value = "" ;
+        document.getElementsByName("password")[0].value = "" ;
+        //alert("Submit button clicked!");
+        return true;
+    }
+</script>
 
+<div class="outer">
     <form method="post" action="">
         <table align="center">
             <tr>
@@ -36,11 +52,17 @@
                 </td>
             </tr>
 
-            <tr>
-                <td colspan="2" align="center"><input type="submit" name="" id=""></td>
+            <tr colspan="2">
+                <td colspan="2" align="center">
+                    <input type="submit" value="ยืนยัน">
+                    <input type="button" value="ยกเลิก" onclick="return canclelogin();">
+                </td>
+               
             </tr>
         </table>
     </form>
+</div>
+    
 
     <?php
         //echo "this {$link}";
@@ -92,6 +114,7 @@
             */
             if(!(mysqli_num_rows($result) > 0)) {
                 echo "Login fail";
+               
             } else {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $permission = $row["permission_id"];
@@ -117,14 +140,11 @@
                 setcookie('userid', '', time()-3600);
             }
         }
-        
-      
 
-        
         //echo "pp| {$_SESSION['userid']} <br>";
         //echo "pp| {$_SESSION['permission']} <br>";
         //echo "pp| {$_COOKIE['userid']} T <br>";
-        
+        $conn->close();
     ?>
     
 </body>
