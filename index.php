@@ -1,6 +1,7 @@
 <?php
 
     include_once "inc.php";
+    //include_once "fucn.php";
 
 ?>
 
@@ -42,6 +43,32 @@
     </form>
 
     <?php
+        //echo "this {$link}";
+        //echo "echo from index {$_SESSION['permission']}";
+
+        /*  ถ้า $_SESSION['userid'] ถูก set = มีการ Login แล้ว
+            ให้ Redirect ไปหน้าหลักของ permission นั้นๆ
+        ------------------------------------------------*/
+        if(isset($_SESSION['userid'])) {
+            //echo "this {$link}";
+            redir();
+        }
+        
+
+        /*
+            ถ้า $_SESSION['userid'] ไม่ถูก set 
+            ก็ให้ ลบ cookie กับ session ที่เกี่ยวกับการ Login ออกไปก่อน
+        */
+        if(!isset($_SESSION['userid'])) {
+            if(isset($_SESSION['permission'])) {
+                unset($_SESSION['permission']);
+            }
+
+            if(isset($_COOKIE['userid'])) {
+                unset($_COOKIE['userid']);
+            }
+            
+        }
     
         /*Check Login and Create SESSION | COOKIE
         ---------------------------------------*/
@@ -75,32 +102,29 @@
 
                     echo "{$_SESSION['userid']} <br>";
                     echo "{$_SESSION['permission']} <br>";
-                    echo "{$_COOKIE['userid']} <br>";
+                    echo "{$_COOKIE['userid']} <br>";                    
                 }   
             }
         }
 
         /*Redirect Page after login
         --------------------------*/
-        if(!empty($_SESSION['permission'])) {
-            switch ($_SESSION['permission']) {
-                case 1:
-                    header("Location: http://localhost/projeck_army/admin.php");
-                    die();
-                case 2:
-                    header("Location: http://localhost/projeck_army/superuser.php");
-                    die();
-                case 3:
-                    header("Location: http://localhost/projeck_army/user.php");
-                    die();
+        if (isset($permission)) {
+            if(($permission == 1) || ($permission == 2) || ($permission == 3)) {
+                redir();
+            } else {
+                session_destroy();
+                setcookie('userid', '', time()-3600);
             }
         }
+        
+      
 
-        /*
-        echo "pp| {$_SESSION['userid']} <br>";
-        echo "pp| {$_SESSION['permission']} <br>";
-        echo "pp| {$_COOKIE['userid']} T <br>";
-        */
+        
+        //echo "pp| {$_SESSION['userid']} <br>";
+        //echo "pp| {$_SESSION['permission']} <br>";
+        //echo "pp| {$_COOKIE['userid']} T <br>";
+        
     ?>
     
 </body>

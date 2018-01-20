@@ -18,7 +18,7 @@
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
     --------------------------------*/
-    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
+    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 3)) {
         redir();
     }
     
@@ -34,14 +34,14 @@
     <link rel="stylesheet" type="text/css" href="/projeck_army/css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="/projeck_army/css/w3school.css">
     
-    <title>Admin</title>
+    <title>User</title>
 </head>
 <body>
     <div class="container">
 
 <?php
     include "./layout/header.php";
-    include './layout/admin_nav.php';
+    include './layout/user_nav.php';
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
