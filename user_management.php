@@ -87,7 +87,7 @@
                                                          
                                 </td>
                                 <td>
-                                    <a href='./user_del_form.php/?id={$row['user_id']}'>ลบ</a> 
+                                    <a href='./user_del.php/?id={$row['user_id']}'>ลบ</a> 
                                 </td>
                               </tr>";
                     }
