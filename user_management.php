@@ -10,9 +10,10 @@
         ถ้ายังไม่ได้ login ให้ไปที่หน้า index
     --------------------------------*/
     if (!isset($_SESSION['userid'])) {
-        header("Location: {$link}/index.php");
+        header("Location: //{$path}/index.php");
         die();
     }
+
 
     /*--------------------------------
         Check Permission Access
@@ -34,9 +35,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/mystyle.css">
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/w3school.css">
-    <link rel="stylesheet" type="text/css" href="./css/table.css">
+    
+    <?php
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/mystyle.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/w3school.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
+    ?>
+
+   
     
     <title>Admin</title>
 </head>

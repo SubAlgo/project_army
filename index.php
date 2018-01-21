@@ -1,7 +1,7 @@
 <?php
 
     include_once "inc.php";
-    //include_once "fucn.php";
+    //echo $path;
 
 ?>
 
@@ -12,8 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!--
     <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="./css/w3school.css">
+    -->
+
+     <?php
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/mystyle.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/w3school.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
+    ?>
 
     <title>Login</title>
 </head>

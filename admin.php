@@ -10,7 +10,7 @@
         ถ้ายังไม่ได้ login ให้ไปที่หน้า index
     --------------------------------*/
     if (!isset($_SESSION['userid'])) {
-        header("Location: {$link}/index.php");
+        header("Location: //{$path}/index.php");
         die();
     }
 
