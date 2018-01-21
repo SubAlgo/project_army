@@ -162,7 +162,7 @@
                                 <td colspan="2">
                                     <div align="center">
                                         <input type="submit" name="" id="" value="บันทึก">
-                                        <button type="button" onclick="alert('Hello world-*-!')">ยกเลิก</button>
+                                        <button type="button" onclick="alert('ยกเลิก')">ยกเลิก</button>
                                     </div>
                                 </td>
                             </tr>
