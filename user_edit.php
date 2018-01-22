@@ -43,22 +43,21 @@
     echo $id;
     
     $sql = "SELECT * FROM users WHERE user_id = '{$id}'";
-
     $result = $conn->query($sql);
-
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()) {
             $user_id = $row['user_id'];
             //$user_password = $result['user_password'];
             $user_name = $row['user_name'];
             $user_surname = $row['user_surname'];
+            $permission_id = $row['permission_id'];
         }
-        
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         header("refresh:2; url=./user_management.php"); 
         exit(1);
-    }
+    }    
+    
 ?>
 
 
@@ -79,6 +78,8 @@
         if (mysqli_query($conn, $sql)) {
             //echo "Updata Success!!";
             echo '<script type="text/javascript">alert("Update Success");</script>';
+            header("Location: //{$path}/user_management.php");
+            die();
         }
         else {
             echo "Error: {$sql} <br> mysqli_error($conn)";
@@ -89,7 +90,7 @@
         //header("Location: /{$link}/admin.php");
        // die();
 
-        header("refresh:3; url=http://localhost/projeck_army/user_management.php"); 
+        header("refresh:2; url=http://localhost/projeck_army/user_management.php"); 
         exit(1);
         
         
@@ -122,7 +123,7 @@
 
             <article>
                 <div class="w3-container">
-                    <form method="post" action="">
+                    <?php echo "<form method='post' action=''>"; ?>
                         <table class="w3-table">
                             <tr>
                                 <th colspan="2" aling="center">
@@ -152,9 +153,9 @@
                                 <td>ระดับสิทธิ</td>
                                 <td>
                                     <select name="permis">
-                                        <option value="1">Admin</option>
-                                        <option value="2">SuperUser</option>
-                                        <option value="3">User</option>
+                                        <option value="1" <?php if($permission_id == '1') echo 'selected'; ?>>Admin</option>
+                                        <option value="2" <?php if($permission_id == '2') echo 'selected'; ?>>SuperUser</option>
+                                        <option value="3" <?php if($permission_id == '3') echo 'selected'; ?>>User</option>   
                                     </select>
                                 </td>
                             </tr>

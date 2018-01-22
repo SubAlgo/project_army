@@ -44,6 +44,8 @@ CREATE TABLE PROJECT (
     check_accept VARCHAR(20),
 
     send_withdraw VARCHAR(20),
+
+    project_success BOOLEAN,
     
     PRIMARY KEY(project_id)
 );

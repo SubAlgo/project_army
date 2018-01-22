@@ -94,8 +94,11 @@
 <head>
 
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="./css/mystyle.css">
-<link rel="stylesheet" type="text/css" href="./css/w3school.css">
+    <?php
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/mystyle.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/w3school.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
+    ?>
 
 </head>
 <body>
