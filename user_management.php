@@ -62,9 +62,10 @@
     <hr>
   <?php
         //$sql  = "SELECT user_id, user_name, user_surname,  FROM users";
-        $sql  = "SELECT users.user_id, users.user_name, users.user_surname, permission.permission_title 
+        $sql  = "SELECT users.user_id, users.user_name, users.user_surname, users.permission_id, permission.permission_title 
                  FROM users
-                 INNER JOIN permission ON users.permission_id = permission.permission_id";
+                 INNER JOIN permission ON users.permission_id = permission.permission_id
+                 ORDER BY users.permission_id";
 
        // SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
 //FROM Orders
