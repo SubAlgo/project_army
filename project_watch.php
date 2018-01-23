@@ -98,7 +98,7 @@
     if($permission == 1) {
         include './layout/admin_nav.php';
     } else if($permission == 2) {
-        include './layout/supeuser_nav.php';
+        include './layout/superuser_nav.php';
     } else if($permission == 3) {
         include './layout/user_nav.php';
     }

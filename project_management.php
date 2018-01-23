@@ -52,16 +52,29 @@
 
 <?php
     include "./layout/header.php";
-    include './layout/admin_nav.php';
+    
+    $permission = $_SESSION['permission'];
+
+    if($permission == 1) {
+        include './layout/admin_nav.php';
+    } else if($permission == 2) {
+        include './layout/superuser_nav.php';
+    } else if($permission == 3) {
+        include './layout/user_nav.php';
+    }
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
 
 
 <article>
-    <a href="./project_add.php">เพิ่ม รายการโครงการ</a>
-    <hr>
+    
   <?php
+        if ($permission == 1 || $permission == 2) {
+            echo "<a href='./project_add.php'>เพิ่ม รายการโครงการ</a>";
+            echo "<hr>";
+        }
+    
         //$sql  = "SELECT user_id, user_name, user_surname,  FROM users";
         $sql_success  = "SELECT  PROJECT_ID, PROJECT_TITLE
                          FROM PROJECT
