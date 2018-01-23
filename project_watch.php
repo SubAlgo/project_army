@@ -18,10 +18,14 @@
     --------------------------------*/
     if(!isset($_SESSION['permission'])) {
         redir();
+    } else {
+        echo "{$_SESSION['userid']} <br>";
+        echo "{$_SESSION['permission']} <br>";
+    
+        $permission = $_SESSION['permission'];
     }
 
-    echo "{$_SESSION['userid']} <br>";
-    echo "{$_SESSION['permission']} <br>";
+    
 ?>
 
 <?php
@@ -90,7 +94,15 @@
 
 <?php
     include './layout/header.php';
-    include './layout/admin_nav.php';
+
+    if($permission == 1) {
+        include './layout/admin_nav.php';
+    } else if($permission == 2) {
+        include './layout/supeuser_nav.php';
+    } else if($permission == 3) {
+        include './layout/user_nav.php';
+    }
+    
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->

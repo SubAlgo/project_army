@@ -10,7 +10,7 @@
         ถ้ายังไม่ได้ login ให้ไปที่หน้า index
     --------------------------------*/
     if (!isset($_SESSION['userid'])) {
-        header("Location: {$link}/index.php");
+        header("Location: //{$path}/index.php");
         die();
     }
 
@@ -21,6 +21,8 @@
     if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 2)) {
         redir();
     }
+
+    $permission = $_SESSION['permission'];
     
 ?>
 
@@ -34,14 +36,21 @@
     <link rel="stylesheet" type="text/css" href="/projeck_army/css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="/projeck_army/css/w3school.css">
     
-    <title>Super User</title>
+    <title>Admin</title>
 </head>
 <body>
     <div class="container">
 
 <?php
     include "./layout/header.php";
-    include './layout/superuser_nav.php';
+    
+    if($permission == 1) {
+        include './layout/admin_nav.php';
+    } else if($permission == 2) {
+        include './layout/superuser_nav.php';
+    } else if($permission == 3) {
+        include './layout/user_nav.php';
+    }
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->

@@ -10,9 +10,10 @@
         ถ้ายังไม่ได้ login ให้ไปที่หน้า index
     --------------------------------*/
     if (!isset($_SESSION['userid'])) {
-        header("Location: {$link}/index.php");
+        header("Location: //{$path}/index.php");
         die();
     }
+
 
     /*--------------------------------
         Check Permission Access
@@ -21,6 +22,11 @@
     if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 3)) {
         redir();
     }
+
+    echo "{$_SESSION['userid']} <br>";
+    echo "{$_SESSION['permission']} <br>";
+
+    $permission = $_SESSION['permission'];
     
 ?>
 
@@ -31,26 +37,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/mystyle.css">
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/w3school.css">
     
-    <title>User</title>
+    <?php
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/mystyle.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/w3school.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
+    ?>
+
+   
+    
+    <title>Project_Management</title>
 </head>
 <body>
     <div class="container">
 
 <?php
     include "./layout/header.php";
-    include './layout/user_nav.php';
+    
+    if($permission == 1) {
+        include './layout/admin_nav.php';
+    } else if($permission == 2) {
+        include './layout/supeuser_nav.php';
+    } else if($permission == 3) {
+        include './layout/user_nav.php';
+    }
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
 
 
 <article>
-  <h1>London</h1>
-  <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-  <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <a href="./project_add.php">เพิ่ม รายการโครงการ</a>
+    <hr>
+  <?php
+        //$sql  = "SELECT user_id, user_name, user_surname,  FROM users";
+        $sql_success  = "SELECT  PROJECT_ID, PROJECT_TITLE
+                         FROM PROJECT
+                         WHERE PROJECT_SUCCESS = 1";
+
+        $sql_inwork  = "SELECT  PROJECT_ID, PROJECT_TITLE
+                         FROM PROJECT
+                         WHERE PROJECT_SUCCESS = 0";
+
+       // SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+//FROM Orders
+//INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+        
+        //รายการที่ยังดำเนินการอยู่
+        $result = $conn->query($sql_inwork);
+
+        echo "รายการ/โครงการ";
+        if ($result->num_rows > 0) {
+            echo "<table id='customers'>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รายการ/โครงการ</th>
+                        <th colspan='3'>แสดงรายการ/โครงการ</th>
+                        
+                    </tr>";
+
+                    $i = 1;
+
+                    while($row = $result->fetch_assoc())
+                    {
+                        echo "<tr>
+                                <td>{$i}</td>
+                                <td>{$row['PROJECT_TITLE']} </td>
+
+                                <td>
+                                    <div align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a>
+                                    </div>
+                                                         
+                                </td>
+                                
+                                
+                                
+                              </tr>";
+                        $i++;
+                    }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+        
+        /*-------------------------------------------------------
+
+        -------------------------------------------------------*/
+
+        //รายการที่ดำเนินการเสร็จแล้ว
+        echo "<hr>";
+        $result = $conn->query($sql_success);
+        echo "รายการ/โครงการ (สำเร็จแล้ว)";
+        if ($result->num_rows > 0) {
+            echo "<table id='customers'>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รายการ/โครงการ</th>
+                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        
+                    </tr>";
+
+                    $i = 1;
+
+                    while($row = $result->fetch_assoc())
+                    {
+                        echo "<tr>
+                                <td>{$i}</td>
+                                <td>{$row['PROJECT_TITLE']} </td>
+
+                                <td>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                                         
+                                </td>
+                                
+                                <td>
+                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                                                         
+                                </td>
+                                <td>
+                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                                </td>
+                              </tr>";
+                        $i++;
+                    }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+
+        $conn->close();
+      ?>
+      
+
+      
 </article>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->

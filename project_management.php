@@ -18,10 +18,11 @@
     /*--------------------------------
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
-    --------------------------------*/
+    
     if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
         redir();
     }
+    --------------------------------*/
 
     echo "{$_SESSION['userid']} <br>";
     echo "{$_SESSION['permission']} <br>";

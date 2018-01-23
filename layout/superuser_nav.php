@@ -5,7 +5,7 @@
 
 
 
-  $ln =  "http://{$host}/{$project_name}/";
+ 
 ?>
 <nav>
   <ul>

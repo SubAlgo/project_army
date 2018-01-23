@@ -18,7 +18,7 @@
         ถ้ายังไม่ได้ login ให้ไปที่หน้า index
     --------------------------------*/
     if (!isset($_SESSION['userid'])) {
-        header("Location: {$link}/index.php");
+        header("Location: //{$path}/index.php");
         die();
     }
     
@@ -27,7 +27,7 @@
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
     --------------------------------*/
-    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
+    if(isset($_SESSION['permission']) && ($_SESSION['permission'] == 3)) {
         redir();
     }
 
