@@ -4,7 +4,7 @@
     //echo $path;
 
 ?>
-
+<div></div>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +160,8 @@
         //echo "pp| {$_COOKIE['userid']} T <br>";
         $conn->close();
     ?>
-    
+    <?php
+    include './layout/foot.php';
+?>
 </body>
 </html>

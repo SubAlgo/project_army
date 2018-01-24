@@ -28,3 +28,9 @@
 
         }
 ?>
+
+<script>
+    function relaodfunc() {
+        location.reload();
+    }
+</script>
