@@ -19,8 +19,8 @@
         redir();
     }
 
-    echo "{$_SESSION['userid']} <br>";
-    echo "{$_SESSION['permission']} <br>";
+    //echo "{$_SESSION['userid']} <br>";
+    //echo "{$_SESSION['permission']} <br>";
 ?>
 
 <?php
@@ -92,8 +92,7 @@
     }
 
 ?>
-
-
+<div></div>
 
 <!DOCTYPE html>
 <html>

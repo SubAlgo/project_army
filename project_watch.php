@@ -19,8 +19,8 @@
     if(!isset($_SESSION['permission'])) {
         redir();
     } else {
-        echo "{$_SESSION['userid']} <br>";
-        echo "{$_SESSION['permission']} <br>";
+        //echo "{$_SESSION['userid']} <br>";
+        //echo "{$_SESSION['permission']} <br>";
     
         $permission = $_SESSION['permission'];
     }
@@ -72,8 +72,7 @@
 
 
 ?>
-
-
+<div></div>
 
 <!DOCTYPE html>
 <html>

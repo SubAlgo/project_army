@@ -21,8 +21,8 @@
         redir();
     }
 
-    echo "{$_SESSION['userid']} <br>";
-    echo "{$_SESSION['permission']} <br>";
+   //echo "{$_SESSION['userid']} <br>";
+   //echo "{$_SESSION['permission']} <br>";
 ?>
 
 <?php
@@ -116,10 +116,7 @@
         }
         else {
             echo "Error: {$sql} <br> mysqli_error($conn)";
-        }
-                            
-                            
-                            
+        }                    
     }
     
         
@@ -130,7 +127,7 @@
 
 ?>
 
-
+<div></div>
 
 <!DOCTYPE html>
 <html>

@@ -31,8 +31,7 @@
         redir();
     }
 
-    echo "{$_SESSION['userid']} <br>";
-    echo "{$_SESSION['permission']} <br>";
+ 
     
 ?>
 
@@ -88,7 +87,7 @@
     
 ?>
 
-
+<div></div>
 <!DOCTYPE html>
 <html>
 <head>

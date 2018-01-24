@@ -23,6 +23,9 @@
     }
 
     $permission = $_SESSION['permission'];
+    echo "<div></div>";
+    //echo "Username: {$_SESSION['userid']} <br>";
+    //echo "Permission: {$_SESSION['permission']} <br>";
     
 ?>
 
@@ -53,7 +56,7 @@
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
 
 
-<article>
+<article>    
     <?php
         if ($permission == 1 || $permission == 2) {
             echo "<a href='./project_add.php'>เพิ่ม รายการโครงการ</a>";

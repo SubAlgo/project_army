@@ -1,1 +1,4 @@
-<footer>Copyright &copy; W3Schools.com</footer>
+<footer>
+    <p>ระบบการจัดการฐานข้อมูลจัดซื้อ - จัดจ้าง</p>
+    <p>โรงงานวัตถุระเบิดทหารฯ</p>
+</footer>

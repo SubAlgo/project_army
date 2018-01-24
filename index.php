@@ -23,13 +23,7 @@
         echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
     ?>
 
-    <title>Login</title>
-</head>
-<body>
-<!--
-<a href='http://localhost/projeck_army/sub/sub_test.php'>sub_test</a>
--->
-<script>
+    <script>
     function canclelogin() {
         
         document.getElementsByName("userid")[0].value = "" ;
@@ -39,7 +33,19 @@
     }
 </script>
 
-<div class="outer">
+    <title>Login</title>
+</head>
+
+
+<body>
+
+
+<?php
+        include "./layout/header.php";
+        //include './layout/admin_nav.php';
+    ?>
+<div class="container">
+    
     <form method="post" action="">
         <table align="center">
             <tr>
