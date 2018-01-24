@@ -85,15 +85,15 @@
                     while($row = $result->fetch_assoc())
                     {
                         echo "<tr>
-                                <td>{$row['user_id']}</td>
-                                <td>{$row['user_name']} </td>
-                                <td>{$row['user_surname']}</td>
-                                <td>{$row['permission_title']}</td>
-                                <td>
+                                <td align='center'>{$row['user_id']}</td>
+                                <td align='center'>{$row['user_name']} </td>
+                                <td align='center'>{$row['user_surname']}</td>
+                                <td align='center'>{$row['permission_title']}</td>
+                                <td align='center'>
                                     <a href='./user_edit.php/?id={$row['user_id']}'>แก้ไข</a>
                                                          
                                 </td>
-                                <td>
+                                <td align='center'>
                                     <a href='./user_del.php/?id={$row['user_id']}'>ลบ</a> 
                                 </td>
                               </tr>";

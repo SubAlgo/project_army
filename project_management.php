@@ -18,11 +18,11 @@
     /*--------------------------------
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
-    
-    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
+    --------------------------------*/
+    if(isset($_SESSION['permission']) && ($_SESSION['permission'] == 3)) {
         redir();
     }
-    --------------------------------*/
+    
 
     echo "{$_SESSION['userid']} <br>";
     echo "{$_SESSION['permission']} <br>";
@@ -97,7 +97,7 @@
                     <tr>
                         <th>ลำดับ</th>
                         <th>รายการ/โครงการ</th>
-                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        <th colspan='3'>แสดง/แก้ไข/ลบ</th>
                         
                     </tr>";
 
@@ -106,19 +106,19 @@
                     while($row = $result->fetch_assoc())
                     {
                         echo "<tr>
-                                <td>{$i}</td>
-                                <td>{$row['PROJECT_TITLE']} </td>
+                                <td align='center'>{$i}</td>
+                                <td align='center'>{$row['PROJECT_TITLE']} </td>
 
-                                <td>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                <td align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a>
                                                          
                                 </td>
                                 
-                                <td>
+                                <td align='center'>
                                     <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
                                                          
                                 </td>
-                                <td>
+                                <td align='center'>
                                     <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
                                 </td>
                               </tr>";
@@ -142,7 +142,7 @@
                     <tr>
                         <th>ลำดับ</th>
                         <th>รายการ/โครงการ</th>
-                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        <th colspan='3'>แสดง/แก้ไข/ลบ</th>
                         
                     </tr>";
 
@@ -151,19 +151,19 @@
                     while($row = $result->fetch_assoc())
                     {
                         echo "<tr>
-                                <td>{$i}</td>
-                                <td>{$row['PROJECT_TITLE']} </td>
+                                <td align='center'>{$i}</td>
+                                <td align='center'>{$row['PROJECT_TITLE']} </td>
 
-                                <td>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                <td align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a>
                                                          
                                 </td>
                                 
-                                <td>
+                                <td align='center'>
                                     <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
                                                          
                                 </td>
-                                <td>
+                                <td align='center'>
                                     <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
                                 </td>
                               </tr>";

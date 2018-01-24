@@ -67,7 +67,7 @@
 
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully";
-            header("Location: //{$path}/project_add.php");
+            header("Location: //{$path}/project_management.php");
             die();
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

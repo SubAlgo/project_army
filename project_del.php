@@ -41,7 +41,7 @@
         header("Location: //{$path}/project_management.php");
         die();
     } else {
-        echo "rrrrrrrr - {$_GET['id']}";
+        ///echo "rrrrrrrr - {$_GET['id']}";
          
         $id = $_GET['id'];
         //สร้าง sql statement
@@ -90,11 +90,13 @@
         $sql_del = "DELETE FROM PROJECT WHERE project_id = '{$project_id}'";
 
         if(mysqli_query($conn, $sql_del)) {
-            echo "Delete Success!!";
-            header( "refresh:2; url=//{$path}/project_management.php"); 
-            exit(1);
+            header("Location: //{$path}/project_management.php");
+            die();
+            //echo "<div align='center'><h2>Delete Success!!</h2></div>";
+            //header( "refresh:2; url=//{$path}/project_management.php"); 
+            //exit(1);
         } else {
-            echo "Error: {$sql} <br> mysqli_error($conn)";
+            echo "<div aling='center'>Error: {$sql} <br> mysqli_error($conn) </div>";
             header( "refresh:2; url=//{$path}/project_management.php"); 
             exit(1);
         }

@@ -92,11 +92,11 @@
 
 <div class="container">
 
-    <?php
-        include './layout/header.php';
+<?php
+    include './layout/header.php';
 
-        if($permission == 1) {
-            include './layout/admin_nav.php';
+    if($permission == 1) {
+        include './layout/admin_nav.php';
     } else if($permission == 2) {
         include './layout/superuser_nav.php';
     } else if($permission == 3) {
@@ -111,6 +111,7 @@
 
     <div class="w3-container">
         <form method="post" action="./project_watch.php">
+        
             <table class="w3-table">
             
                 <tr>
@@ -121,72 +122,77 @@
 
                 <tr>
                     <td>ที่หนังสือ</td>
-                    <td><input type="text" readonly="true" value="<?php if($book_no =="") {echo "-";} else {echo $book_no;} ?>" name="book_no" id=""></td>
+                    <td><label><?php if($book_no =="") {echo "-";} else {echo $book_no;} ?></label></td>
                     <td>ลงวันที่</td>
-                    <td colspan="3"><input type="date" readonly="true" value="<?php if($date_at =="") {echo "-";} else {echo $date_at;} ?>" name="date_at" id=""></td>
+                    <td><label><?php if($date_at =="") {echo "-";} else {echo $date_at;} ?></label></td>
+                    
                 </tr>
                 
                 <tr>
                     <td>ตรวจสอบงบประมาณ เมื่อ</td>
-                    <td><input type="date" readonly="true" value="<?php echo $check_budget ?>" name="check_budget" id=""></td>
+                    <td><label><?php if($check_budget  =="") {echo "-";} else {echo $check_budget ;} ?></label></td>
                     <td>เป็นเงิน </td>
-                    
-                    <td><input type="text" readonly="true" value="<?php if($budget =="") {echo "-";} else {echo $budget;} ?>" name="budget"  id=""> บาท</td>
+                    <td><label><?php if($budget  =="") {echo "-";} else {echo $budget ;} ?></label>  บาท</td>
                     
                 </tr>
 
                 <tr>
                     <td>อนุมัติหลักการ เมื่อ</td>
-                    <td><input type="date" readonly="true" value="<?php echo $principle_allow ?>" name="principle_allow" id=""></td>
-                    <td colspan="1">อนุมัติซื้อ-จ้าง เมื่อ </td>
-                    <td><input type="date" readonly="true" value="<?php echo $buy_accept ?>" name="buy_accept" id=""></td>
+                    <td><label><?php if($principle_allow =="") {echo "-";} else {echo $principle_allow;} ?></td>
+                    
+                    <td colspan="2">อนุมัติซื้อ-จ้าง เมื่อ <label><?php if($buy_accept =="") {echo "-";} else {echo $buy_accept;} ?></label></td>
+                    
                 </tr>
 
                 <tr>
                     <td>ตรวจร่าง นธน. ฯ เมื่อ</td>
-                    <td colspan="4"><input type="date" readonly="true" value="<?php echo $check_form ?>" name="check_form" id=""></td>
+                    
+                    <td colspan="4"><label><?php if($check_form =="") {echo "-";} else {echo $check_form;} ?></label></td>
                 </tr>
 
                 <tr>
                     <td>ใบสั่งซื้อ - สั่งจ้าง ที่ </td>
                     
-                    <td><input type="text" readonly="true" value="<?php if($order_no  =="") {echo "-";} else {echo $order_no ;} ?>" name="order_no" id=""></td>
+                    <td><label><?php if($order_no =="") {echo "-";} else {echo $order_no;} ?></label></td>
                     <td>ลงวันที่</td>
-                    <td><input type="date" readonly="true" value="<?php echo $order_date ?>" name="order_date" id=""></td>
+                   
+                    <td> <label><?php if($order_date =="") {echo "-";} else {echo $order_date;} ?></label></td>
                     
-                    <td >กำหนดส่งมอบ <input type="text" readonly="true" value="<?php if($order_deadline  =="") {echo "-";} else {echo $order_deadline ;} ?>" name="order_deadline" id=""> วัน</td>
+                    <td >กำหนดส่งมอบ <label><?php if($order_deadline =="") {echo "-";} else {echo $order_deadline;} ?></label> วัน</td>
                 </tr>
 
                 <tr>
                     <td>สัญญาซื้อ - สั่งจ้าง ที่ </td>
                     
-                    <td><input type="text" readonly="true" value="<?php if($promise_no  =="") {echo "-";} else {echo $promise_no ;} ?>" name="promise_no" id=""></td>
+                    <td><label><?php if($promise_no =="") {echo "-";} else {echo $promise_no;} ?></label></td>
                     <td>ลงวันที่</td>
-                    <td><input type="date" readonly="true" value="<?php echo $promise_date ?>" name="promise_date" id=""></td>
-                    
-                    <td>กำหนดส่งมอบ <input type="text" readonly="true" value="<?php if($promise_deadline  =="") {echo "-";} else {echo $promise_deadline ;} ?>" name="promise_deadline" id=""> วัน</td>
+                   
+                    <td> <label><?php if($promise_date =="") {echo "-";} else {echo $promise_date;} ?></label></td>
+                   
+                    <td>กำหนดส่งมอบ  <label><?php if($promise_deadline =="") {echo "-";} else {echo $promise_deadline;} ?></label> วัน</td>
                 </tr>
 
                 <tr>
                     <td>ผูกพันงบประมาณ เมื่อ</td>
-                    <td colspan="4"><input type="date" readonly="true" value="<?php echo $binding_statement ?>" name="binding_statement" id=""></td>
+                    <td colspan="4"><label><?php if($binding_statement=="") {echo "-";} else {echo $binding_statement;} ?></label></td>
                 </tr>
 
                 <tr>
                     <td>ตรวจรับ เมื่อ</td>
-                    <td colspan="4"><input type="date" readonly="true" value="<?php echo $check_accept ?>" name="check_accept" id=""></td>
+                    
+                    <td colspan="4"><label><?php if($check_accept=="") {echo "-";} else {echo $check_accept;} ?></label></td>
                 </tr>
 
                 <tr>
                     <td>ส่งขอเบิกเงิน เมื่อ</td>
-                    <td colspan="4"><input type="date" readonly="true" value="<?php echo $send_withdraw ?>" name="send_withdraw" id=""></td>
+                    
+                    <td colspan="4"><label><?php if($send_withdraw =="") {echo "-";} else {echo $send_withdraw ;} ?></label></td>
                 </tr>
 
                 <tr>
                     <td>สถานะโครงการ</td>
-                    <td colspan="4"><input type="text" readonly="true" 
-                                        value="<?php if($process_success == 0) echo 'อยู่ระหว่างดำเนินการ'; else {echo 'ดำเนินการเรียบร้อย';}  ?>" 
-                                        name="project_status" id=""></td>
+                    
+                    <td colspan="4"><label><?php if($process_success == 0) echo 'อยู่ระหว่างดำเนินการ'; else {echo 'ดำเนินการเรียบร้อย';}  ?></label></td>
                 </tr>
 
                 

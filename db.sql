@@ -24,7 +24,7 @@ CREATE TABLE PROJECT (
     date_at VARCHAR(20),
 
     check_budget VARCHAR(20),
-    budget int,
+    budget VARCHAR(20),
 
     principle_allow VARCHAR(20),
     buy_accept VARCHAR(20),

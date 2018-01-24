@@ -27,7 +27,7 @@
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
     --------------------------------*/
-    if(isset($_SESSION['permission']) && ($_SESSION['permission'] == 3)) {
+    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
         redir();
     }
 
@@ -52,7 +52,7 @@
             echo "Error: {$sql} <br> mysqli_error($conn)";
         }
 
-        header( "refresh:3; url=./user_management.php" ); 
+        header( "refresh:2; url=./user_management.php" ); 
         exit(1);
     }
     

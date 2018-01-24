@@ -73,11 +73,11 @@
         
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully";
-            header( "refresh:3; url=http://localhost/projeck_army/user_add.php" );
+            header( "refresh:2; url=http://localhost/projeck_army/user_management.php" );
             exit(1);
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            header( "refresh:3; url=http://localhost/projeck_army/user_add.php" );
+            header( "refresh:2; url=http://localhost/projeck_army/user_add.php" );
             exit(1);
         }
 

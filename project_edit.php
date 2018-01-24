@@ -13,10 +13,11 @@
 
     /*--------------------------------
         Check Permission Access
-        ถ้าไม่ได้ set permission ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
-        เพราะ หน้านี้ user จะเข้าได้ทุกระดับ
+        ถ้าไม่ได้ set permission หรือ permission=3(user) 
+        ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
+        เพราะ หน้านี้ admin กับ superuser เข้าได้เท่านั้น
     --------------------------------*/
-    if(!isset($_SESSION['permission'])) {
+    if(!isset($_SESSION['permission']) || $_SESSION['permission'] == 3) {
         redir();
     }
 

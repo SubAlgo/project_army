@@ -104,8 +104,8 @@
                     while($row = $result->fetch_assoc())
                     {
                         echo "<tr>
-                                <td>{$i}</td>
-                                <td>{$row['PROJECT_TITLE']} </td>
+                                <td><div align='center'>{$i}</div></td>
+                                <td><div align='center'>{$row['PROJECT_TITLE']}</div> </td>
 
                                 <td>
                                     <div align='center'>
@@ -137,7 +137,7 @@
                     <tr>
                         <th>ลำดับ</th>
                         <th>รายการ/โครงการ</th>
-                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        <th colspan='3'>แสดงรายการ/โครงการ</th>
                         
                     </tr>";
 
@@ -146,24 +146,43 @@
                     while($row = $result->fetch_assoc())
                     {
                         echo "<tr>
-                                <td>{$i}</td>
-                                <td>{$row['PROJECT_TITLE']} </td>
+                                <td><div align='center'>{$i}</div></td>
+                                <td><div align='center'>{$row['PROJECT_TITLE']}</div> </td>
 
                                 <td>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                    <div align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a>
+                                    </div>
                                                          
                                 </td>
                                 
-                                <td>
-                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
-                                                         
-                                </td>
-                                <td>
-                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
-                                </td>
+                                
+                                
                               </tr>";
                         $i++;
                     }
+
+                    //while($row = $result->fetch_assoc())
+                    //{
+                    //    echo "<tr>
+                    //            <td>{$i}</td>
+                    //            <td>{$row['PROJECT_TITLE']} </td>
+//
+                    //            <td>
+                    //                <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                    //                                     
+                    //            </td>
+                    //            
+                    //            <td>
+                    //                <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                    //                                     
+                    //            </td>
+                    //            <td>
+                    //                <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                    //            </td>
+                    //          </tr>";
+                    //    $i++;
+                    //}
             echo "</table>";
         } else {
             echo "0 results";

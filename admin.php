@@ -21,6 +21,8 @@
     if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
         redir();
     }
+
+    $permission = $_SESSION['permission'];
     
 ?>
 
@@ -30,10 +32,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <?php
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/mystyle.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/w3school.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='//{$path}/css/table.css'>";
+    ?>
     
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/mystyle.css">
-    <link rel="stylesheet" type="text/css" href="/projeck_army/css/w3school.css">
-    
+  
     <title>Admin</title>
 </head>
 <body>
@@ -48,9 +54,113 @@
 
 
 <article>
-  <h1>London</h1>
-  <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-  <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <?php
+        if ($permission == 1 || $permission == 2) {
+            echo "<a href='./project_add.php'>เพิ่ม รายการโครงการ</a>";
+            echo "<hr>";
+        }
+    
+        //$sql  = "SELECT user_id, user_name, user_surname,  FROM users";
+        $sql_success  = "SELECT  PROJECT_ID, PROJECT_TITLE
+                         FROM PROJECT
+                         WHERE PROJECT_SUCCESS = 1";
+
+        $sql_inwork  = "SELECT  PROJECT_ID, PROJECT_TITLE
+                         FROM PROJECT
+                         WHERE PROJECT_SUCCESS = 0";
+
+       // SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+//FROM Orders
+//INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+        
+        //รายการที่ยังดำเนินการอยู่
+        $result = $conn->query($sql_inwork);
+
+        echo "รายการ/โครงการ";
+        if ($result->num_rows > 0) {
+            echo "<table id='customers'>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รายการ/โครงการ</th>
+                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        
+                    </tr>";
+
+                    $i = 1;
+
+                    while($row = $result->fetch_assoc())
+                    {
+                        echo "<tr>
+                                <td align='center'>{$i}</td>
+                                <td align='center'>{$row['PROJECT_TITLE']} </td>
+
+                                <td align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                                         
+                                </td>
+                                
+                                <td align='center'>
+                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                                                         
+                                </td>
+                                <td align='center'>
+                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                                </td>
+                              </tr>";
+                        $i++;
+                    }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+        
+        /*-------------------------------------------------------
+
+        -------------------------------------------------------*/
+
+        //รายการที่ดำเนินการเสร็จแล้ว
+        echo "<hr>";
+        $result = $conn->query($sql_success);
+        echo "รายการ/โครงการ (สำเร็จแล้ว)";
+        if ($result->num_rows > 0) {
+            echo "<table id='customers'>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>รายการ/โครงการ</th>
+                        <th colspan='3'>ดู/แก้ไข/ลบ</th>
+                        
+                    </tr>";
+
+                    $i = 1;
+
+                    while($row = $result->fetch_assoc())
+                    {
+                        echo "<tr>
+                                <td align='center'>{$i}</td>
+                                <td align='center'>{$row['PROJECT_TITLE']} </td>
+
+                                <td align='center'>
+                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>ดู</a>
+                                                         
+                                </td>
+                                
+                                <td align='center'>
+                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                                                         
+                                </td>
+                                <td align='center'>
+                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                                </td>
+                              </tr>";
+                        $i++;
+                    }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+
+        $conn->close();
+      ?>
 </article>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
