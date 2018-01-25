@@ -59,7 +59,7 @@
 
 
 <article>
-    <a href="./user_add.php">เพิ่ม ผู้ใช้งาน</a>
+    <font color="green"><b><a href="./user_add.php">+เพิ่ม ผู้ใช้งาน</a></b></font>
     <hr>
   <?php
         //$sql  = "SELECT user_id, user_name, user_surname,  FROM users";
@@ -91,11 +91,11 @@
                                 <td align='center'>{$row['user_surname']}</td>
                                 <td align='center'>{$row['permission_title']}</td>
                                 <td align='center'>
-                                    <a href='./user_edit.php/?id={$row['user_id']}'>แก้ไข</a>
+                                    <font color='blue'><b><a href='./user_edit.php/?id={$row['user_id']}'>แก้ไข</a></b></font>
                                                          
                                 </td>
                                 <td align='center'>
-                                    <a href='./user_del.php/?id={$row['user_id']}'>ลบ</a> 
+                                    <font color='red'><b><a href='./user_del.php/?id={$row['user_id']}'>ลบ</a></b></font>
                                 </td>
                               </tr>";
                     }

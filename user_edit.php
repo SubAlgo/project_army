@@ -154,8 +154,8 @@
                                 <td>
                                     <select name="permis">
                                         <option value="1" <?php if($permission_id == '1') echo 'selected'; ?>>Admin</option>
-                                        <option value="2" <?php if($permission_id == '2') echo 'selected'; ?>>SuperUser</option>
-                                        <option value="3" <?php if($permission_id == '3') echo 'selected'; ?>>User</option>   
+                                        <option value="2" <?php if($permission_id == '2') echo 'selected'; ?>>User</option>
+                                        <option value="3" <?php if($permission_id == '3') echo 'selected'; ?>>SuperUser</option>   
                                     </select>
                                 </td>
                             </tr>

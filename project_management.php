@@ -71,7 +71,7 @@
     
   <?php
         if ($permission == 1 || $permission == 2) {
-            echo "<a href='./project_add.php'>เพิ่ม รายการโครงการ</a>";
+            echo "<font color='green'><b><a href='./project_add.php'>เพิ่ม รายการโครงการ</a></b></font>";
             echo "<hr>";
         }
     
@@ -110,16 +110,16 @@
                                 <td align='center'>{$row['PROJECT_TITLE']} </td>
 
                                 <td align='center'>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a>
+                                    <font color='blue'><b><a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a></b></font>
                                                          
                                 </td>
                                 
                                 <td align='center'>
-                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                                    <font color='green'><b><a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a></b></font>
                                                          
                                 </td>
                                 <td align='center'>
-                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                                    <font color='red'><b><a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a></b></font>
                                 </td>
                               </tr>";
                         $i++;
@@ -155,16 +155,16 @@
                                 <td align='center'>{$row['PROJECT_TITLE']} </td>
 
                                 <td align='center'>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a>
+                                    <font color='blue'><b><a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดง</a></b></font>
                                                          
                                 </td>
                                 
                                 <td align='center'>
-                                    <a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a>
+                                    <font color='green'><b><a href='./project_edit.php/?id={$row['PROJECT_ID']}'>แก้ไข</a></b></font>
                                                          
                                 </td>
                                 <td align='center'>
-                                    <a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a> 
+                                    <font color='red'><b><a href='./project_del.php/?id={$row['PROJECT_ID']}'>ลบ</a></b></font>
                                 </td>
                               </tr>";
                         $i++;

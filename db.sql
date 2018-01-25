@@ -50,20 +50,14 @@ CREATE TABLE PROJECT (
     PRIMARY KEY(project_id)
 );
 
+INSERT INTO 
+    `permission` (
+        `permission_id`, 
+        `permission_title`
+    ) 
+VALUES 
+    ('1', 'admin'), 
+    ('2', 'user'), 
+    ('3', 'superuser');
 
-INSERT INTO
-    `users` (
-        `user_id`,
-        `user_password`,
-        `user_name`,
-        `user_surname`,
-        `permission_id`
-    )
-VALUES
-    (
-        'admin1',
-        '1234',
-        'Mr.Admin',
-        'Admin_surname',
-        '1'
-    );
+

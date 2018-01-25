@@ -23,8 +23,8 @@
         redir();
     }
 
-    echo "{$_SESSION['userid']} <br>";
-    echo "{$_SESSION['permission']} <br>";
+    //echo "{$_SESSION['userid']} <br>";
+    //echo "{$_SESSION['permission']} <br>";
 
     $permission = $_SESSION['permission'];
     
@@ -109,7 +109,7 @@
 
                                 <td>
                                     <div align='center'>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a>
+                                    <font color='blue'><b><a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a></b></font>
                                     </div>
                                                          
                                 </td>
@@ -151,7 +151,7 @@
 
                                 <td>
                                     <div align='center'>
-                                    <a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a>
+                                    <font color='blue'><b><a href='./project_watch.php/?id={$row['PROJECT_ID']}'>แสดงรายละเอียด</a></b></font>
                                     </div>
                                                          
                                 </td>

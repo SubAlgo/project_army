@@ -157,8 +157,8 @@
                     <td>
                         <select name="permis">
                             <option value="1">Admin</option>
-                            <option value="2">SuperUser</option>
-                            <option value="3">User</option>
+                            <option value="2">User</option>
+                            <option value="3">SuperUser</option>
                             
                         </select>
                     </td>
