@@ -15,12 +15,15 @@
         Check Permission Access
         ถ้า permission != 1 ให้เรียก function redir เพื่อไปหน้า ตาม permission ที่ได้รับสิทธิ
     --------------------------------*/
-    if(isset($_SESSION['permission']) && ($_SESSION['permission'] != 1)) {
+    if(isset($_SESSION['permission']) && ($_SESSION['permission'] == 3)) {
         redir();
+    } else {
+        $permission = $_SESSION['permission'];
     }
 
     //echo "{$_SESSION['userid']} <br>";
     //echo "{$_SESSION['permission']} <br>";
+    
 ?>
 
 <?php
@@ -112,7 +115,19 @@
 
 <?php
     include './layout/header.php';
-    include './layout/admin_nav.php';
+
+    switch ($permission) {
+        case 1 :   
+                include './layout/admin_nav.php';
+                break;
+        case 2 :
+                include './layout/superuser_nav.php';
+                break;
+        case 3 :
+                include './layout/user_nav.php';
+                break;
+    }
+
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->

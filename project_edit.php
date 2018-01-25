@@ -148,7 +148,17 @@
 
 <?php
     include './layout/header.php';
-    include './layout/admin_nav.php';
+    switch ($_SESSION['permission']) {
+        case 1 :   
+                include './layout/admin_nav.php';
+                break;
+        case 2 :
+                include './layout/superuser_nav.php';
+                break;
+        case 3 :
+                include './layout/user_nav.php';
+                break;
+    }
 ?>
 
 <!-- +++++++++++++++++ Content +++++++++++++++++ -->
