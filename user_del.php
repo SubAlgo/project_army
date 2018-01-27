@@ -43,7 +43,13 @@
         $user_id = $_POST['userid'];
   
         $sql = "DELETE FROM users
-                WHERE users.user_id = '{$user_id}'";
+                WHERE users.user_id = '{$user_id}' AND users.user_id != 'admin'";
+
+        if ($user_id == 'admin') {
+            echo "<div align='center'><b>ไม่สามารถลบ ID นี้ได้</b></div>";
+            header( "refresh:1; url=./user_management.php" ); 
+            exit(1);
+        }
 
         if (mysqli_query($conn, $sql)) {
             echo "<div align='center'><b>Delete Success!!</b></div>";
