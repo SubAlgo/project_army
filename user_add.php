@@ -71,7 +71,7 @@
 
         
         if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+            echo "<div align='center'><b>New record created successfully</b></div>";
             header( "refresh:2; url=http://localhost/projeck_army/user_management.php" );
             exit(1);
         } else {

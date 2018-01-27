@@ -49,7 +49,7 @@
     <form method="post" action="">
         <table align="center">
             <tr>
-                <td colspan="2" align="center">Login</td>
+                <td colspan="2" align="center"><b>Login</b></td>
             </tr>
 
             <tr>

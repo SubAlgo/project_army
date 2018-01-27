@@ -46,13 +46,13 @@
                 WHERE users.user_id = '{$user_id}'";
 
         if (mysqli_query($conn, $sql)) {
-            echo "Delete Success!!";
+            echo "<div align='center'><b>Delete Success!!</b></div>";
         }
         else {
             echo "Error: {$sql} <br> mysqli_error($conn)";
         }
 
-        header( "refresh:2; url=./user_management.php" ); 
+        header( "refresh:1; url=./user_management.php" ); 
         exit(1);
     }
     
