@@ -75,7 +75,7 @@
             header( "refresh:2; url=http://localhost/projeck_army/user_management.php" );
             exit(1);
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "<div align='center'><b> Error: " .  mysqli_error($conn)."</b></div>";
             header( "refresh:2; url=http://localhost/projeck_army/user_add.php" );
             exit(1);
         }
