@@ -1,0 +1,78 @@
+CREATE TABLE `permission`(
+    `permission_id` INT NOT NULL,
+    `permission_title` VARCHAR(50) NOT NULL,
+    PRIMARY KEY(`permission_id`)
+);
+
+CREATE TABLE `titlename`(
+    `titlename_id` INT NOT NULL,
+    `titlenmae_title` VARCHAR(50) NOT NULL,
+    PRIMARY KEY(`titlename_id`)
+);
+
+CREATE TABLE users(
+    user_id VARCHAR(20) NOT NULL,
+    user_password VARCHAR(50) NOT NULL,
+    titlename_id INT NOT NULL,
+    user_name VARCHAR(50) NOT NULL,
+    user_surname VARCHAR(50) NOT NULL,
+    permission_id INT,
+    PRIMARY KEY(user_id),
+    FOREIGN KEY(titlename_id) REFERENCES titlename(titlename_id),
+    FOREIGN KEY(permission_id) REFERENCES permission(permission_id)
+);
+
+INSERT INTO `permission`(
+    `permission_id`,
+    `permission_title`
+)
+VALUES('1', 'Admin'),('2', 'User'),('3', 'Super user');
+
+INSERT INTO `titlename`(`titlename_id`, `titlenmae_title`)
+VALUES('1', 'นาย'),('2', 'นาง'),('3', 'นางสาว'),
+      ('4', 'สิบตรี'),('5', 'สิบโท'),('6', 'สิบเอก'),
+      ('7', 'จ่าสิบตรี'),('8', 'จ่าสิบโท'),('9', 'จ่าสิบเอก'),('10', 'จ่าสิบเอกพิเศษ'),
+      ('11', 'ร้อยตรี'),('12', 'ร้อยโท'),('13', 'ร้อยเอก'),
+      ('14', 'พันตรี'),('15', 'พันโท'),('16', 'พันเอก'),('17', 'พันเอกพิเศษ'),
+      ('18', 'พลตรี'),('19', 'พลโท'),('20', 'พลเอก');
+
+INSERT INTO `users` (`user_id`, `user_password`, `titlename_id`, `user_name`, `user_surname`, `permission_id`) 
+VALUES ('admin', '1234', '1', 'Panama', 'Alkaline', '1');
+
+CREATE TABLE `project_type`(
+    `projecttype_id` INT NOT NULL,
+    `projecttype_title` VARCHAR(50) NOT NULL,
+    PRIMARY KEY(`projecttype_id`)
+);
+
+CREATE TABLE PROJECT(
+    project_id INT NOT NULL AUTO_INCREMENT,
+    project_title VARCHAR(200),
+    book_no VARCHAR(200),
+    projecttype_id INT,
+    date_at VARCHAR(20),
+    check_budget VARCHAR(20),
+    budget INT,
+    principle_allow VARCHAR(20),
+    buy_accept VARCHAR(20),
+    check_form VARCHAR(20),
+    order_no VARCHAR(20),
+    order_date VARCHAR(20),
+    order_deadline VARCHAR(20),
+    promise_no VARCHAR(20),
+    promise_date VARCHAR(20),
+    promise_deadline VARCHAR(20),
+    binding_statement VARCHAR(20),
+    check_accept VARCHAR(20),
+    send_withdraw VARCHAR(20),
+    project_success BOOLEAN,
+
+    PRIMARY KEY(project_id),
+    FOREIGN KEY(projecttype_id) REFERENCES project_type(projecttype_id)
+);
+
+INSERT INTO `project_type`(
+    `projecttype_id`,
+    `projecttype_title`
+)
+VALUES('1', 'งานซื้อ'),('2', 'งานจ้าง');
